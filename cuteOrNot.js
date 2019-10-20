@@ -28,6 +28,22 @@ const loadCatImg = async () => {
 
 const getContainer = () => document.querySelector('#container')
 
+const createCatButton = () => {
+    let catButton = document.createElement('button');
+    catButton.innerText = 'Cat';
+    catButton.className = 'pet';
+
+    return catButton;
+}
+
+const createDogButton = () => {
+    let dogButton = document.createElement('button');
+    dogButton.className = 'pet';
+    dogButton.innerText = 'Dog'
+
+    return dogButton;
+}
+
 const animalToDOM = async () => {
     let catData = await loadCatImg()
     let dogData = await loadDogImg()
@@ -35,16 +51,12 @@ const animalToDOM = async () => {
     replacePics()
 
     let cat = document.createElement('div');
-    let catButton = document.createElement('button');
-    catButton.innerText = 'Cat'
+    let catButton = createCatButton()
     cat.id = 'cat';
-    catButton.className = 'pet'
 
     let dog = document.createElement('div');
-    let dogButton = document.createElement('button');
-    dogButton.innerText = 'Dog'
+    let dogButton = createDogButton();
     dog.id = 'dog';
-    dogButton.className = 'pet'
 
     dogPic.src = dogData.message
     catPic.src = catData[0].url
